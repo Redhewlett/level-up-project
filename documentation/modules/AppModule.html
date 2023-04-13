@@ -301,7 +301,8 @@ import { UserInfoComponent } from &#x27;./components/user-info/user-info.compone
 import { UserStatsComponent } from &#x27;./components/user-stats/user-stats.component&#x27;;
 import { AdventureComponent } from &#x27;./components/adventure/adventure.component&#x27;;
 import { AdventureInfoComponent } from &#x27;./components/adventure-info/adventure-info.component&#x27;;
-
+import { HttpClientModule } from &#x27;@angular/common/http&#x27;;
+import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 @NgModule({
   declarations: [
     AppComponent,
@@ -311,16 +312,18 @@ import { AdventureInfoComponent } from &#x27;./components/adventure-info/adventu
     UserInfoComponent,
     UserStatsComponent,
     AdventureComponent,
-    AdventureInfoComponent
+    AdventureInfoComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 </code></pre>
     </div>
 </div>

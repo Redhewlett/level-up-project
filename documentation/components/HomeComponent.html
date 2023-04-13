@@ -128,20 +128,19 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { UserService } from &#x27;src/app/services/user.service&#x27;;
 
 @Component({
   selector: &#x27;app-home&#x27;,
   templateUrl: &#x27;./home.component.html&#x27;,
-  styleUrls: [&#x27;./home.component.scss&#x27;]
+  styleUrls: [&#x27;./home.component.scss&#x27;],
 })
-export class HomeComponent {
-
-}
+export class HomeComponent {}
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;home works!&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div&gt;home works&lt;/div&gt;
 </code></pre>
     </div>
 
@@ -177,7 +176,7 @@ export class HomeComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>home works!</p></div>'
+        var COMPONENT_TEMPLATE = '<div><div>home works</div></div>'
     var COMPONENTS = [{'name': 'AdventureComponent', 'selector': 'app-adventure'},{'name': 'AdventureInfoComponent', 'selector': 'app-adventure-info'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'UserInfoComponent', 'selector': 'app-user-info'},{'name': 'UserStatsComponent', 'selector': 'app-user-stats'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeComponent'};

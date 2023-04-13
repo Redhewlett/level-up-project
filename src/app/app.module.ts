@@ -10,7 +10,8 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserStatsComponent } from './components/user-stats/user-stats.component';
 import { AdventureComponent } from './components/adventure/adventure.component';
 import { AdventureInfoComponent } from './components/adventure-info/adventure-info.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,13 +21,15 @@ import { AdventureInfoComponent } from './components/adventure-info/adventure-in
     UserInfoComponent,
     UserStatsComponent,
     AdventureComponent,
-    AdventureInfoComponent
+    AdventureInfoComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

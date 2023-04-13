@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Biben",
+      "xp": 500,
+      "gold": 100
+    },
+    {
+      "id": 2,
+      "name": "Jessica",
+      "xp": 1500,
+      "gold": 500
+    }
+  ],
+  "adventures": [
+    {
+      "id": 1,
+      "name": "Ladmya's backpack",
+      "levelRequired": 1,
+      "xp": 100,
+      "gold": 50
+    },
+    {
+      "id": 2,
+      "name": "The Deathly Mount Nakkache",
+      "levelRequired": 5,
+      "xp": 500,
+      "gold": 250
+    }
+  ],
+  "settings": {
+    "xpFirstLevel": 1000,
+    "xpRatioByLevel": 1.5,
+    "maxLevel": 50
+  }
+}

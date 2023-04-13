@@ -141,7 +141,30 @@ export class HeaderComponent {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;header works!&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;header&gt;
+  &lt;h1&gt;LevelUp&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;a
+          [routerLinkActiveOptions]&#x3D;&quot;{ exact: true }&quot;
+          routerLinkActive&#x3D;&quot;active&quot;
+          routerLink&#x3D;&quot;/home&quot;
+          &gt;Accueil&lt;/a
+        &gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a
+          [routerLinkActiveOptions]&#x3D;&quot;{ exact: true }&quot;
+          routerLinkActive&#x3D;&quot;active&quot;
+          routerLink&#x3D;&quot;settings&quot;
+          &gt;Paramètres&lt;/a
+        &gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+  &lt;!-- user xp name and avatar here --&gt;
+&lt;/header&gt;
 </code></pre>
     </div>
 
@@ -149,7 +172,39 @@ export class HeaderComponent {
                 <p class="comment">
                     <code>./header.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;../../../variables.scss&quot;;
+
+header {
+  padding: 50px 5px;
+  background-color: chocolate;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
+  &amp; h1 {
+    font-size: 1.5rem;
+  }
+  &amp; nav {
+    &amp; ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      &amp; a {
+        color: $primary-color;
+        text-decoration: none;
+        font-size: 1.2rem;
+        opacity: 0.5;
+        &amp;:hover {
+          opacity: 1;
+        }
+      }
+      &amp; .active {
+        opacity: 1;
+        font-weight: bold;
+      }
+    }
+  }
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -177,7 +232,7 @@ export class HeaderComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>header works!</p></div>'
+        var COMPONENT_TEMPLATE = '<div><header>  <h1>LevelUp</h1>  <nav>    <ul>      <li>        <a          [routerLinkActiveOptions]="{ exact: true }"          routerLinkActive="active"          routerLink="/home"          >Accueil</a        >      </li>      <li>        <a          [routerLinkActiveOptions]="{ exact: true }"          routerLinkActive="active"          routerLink="settings"          >Paramètres</a        >      </li>    </ul>  </nav>  <!-- user xp name and avatar here --></header></div>'
     var COMPONENTS = [{'name': 'AdventureComponent', 'selector': 'app-adventure'},{'name': 'AdventureInfoComponent', 'selector': 'app-adventure-info'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'UserInfoComponent', 'selector': 'app-user-info'},{'name': 'UserStatsComponent', 'selector': 'app-user-stats'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
