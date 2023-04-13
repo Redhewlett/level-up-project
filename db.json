@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "ladmya",
+      "xp": 500,
+      "gold": 100
+    },
+    {
+      "id": 2,
+      "name": "JESSICA",
+      "xp": 1500,
+      "gold": 500
+    }
+  ],
+  "adventures": [
+    {
+      "id": 1,
+      "name": "Le sac à dos de Ladmya",
+      "levelRequired": 1,
+      "winXP": 100,
+      "winGold": 50
+    },
+    {
+      "id": 2,
+      "name": "La montagne Nakkache de la mort",
+      "levelRequired": 5,
+      "winXP": 500,
+      "winGold": 250
+    }
+  ],
+  "settings": {
+    "xpFirstLevel": 1000,
+    "xpRatioByLevel": 1.5,
+    "maxLevel": 50
+  }
+}

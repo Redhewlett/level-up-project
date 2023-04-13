@@ -1,1 +1,6 @@
-<p>user-info works!</p>
+Liste Users
+<ul>
+  <li *ngFor="let item of userService.users; let i = index">
+    {{item.name}}
+  </li>
+</ul>
