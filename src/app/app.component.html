@@ -7,7 +7,10 @@
     nous chargerons votre progression.
   </p>
 
-  <form [formGroup]="form">
+  <form
+    [formGroup]="form"
+    (ngSubmit)="userService.setCurrentUser(form.value.userName)"
+  >
     <label for="userName">Nom de joueur</label>
     <input type="text" formControlName="userName" />
     <br />
@@ -19,11 +22,7 @@
       </p>
     </div>
 
-    <button
-      [disabled]="form.status === 'INVALID'"
-      type="submit"
-      (click)="userService.setCurrentUser(form.value.userName)"
-    >
+    <button [disabled]="form.status === 'INVALID'" type="submit">
       Se connecter
     </button>
   </form>

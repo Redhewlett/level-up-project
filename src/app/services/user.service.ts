@@ -26,8 +26,33 @@ export class UserService {
     }
   }
 
+  private getUserByName(name: string) {
+    if (this.users.find((user) => user.name === name)) {
+      return this.users.find((user) => user.name === name);
+    }
+    return null;
+  }
+
   public setCurrentUser(user: string): void {
-    this.currentUser = user;
-    console.log(user);
+    const userFound = this.getUserByName(user);
+    if (userFound) {
+      this.currentUser = userFound.name;
+    } else {
+      this.currentUser = user;
+      this.setUser(user);
+    }
+  }
+
+  private setUser(user: string): void {
+    // use POST to create a new user
+    const newUser: Users = {
+      id: Math.floor(Date.now() / 1000).toString(),
+      name: user.toLocaleLowerCase(),
+      xp: 0,
+      gold: 0,
+    };
+
+    console.log(newUser);
+    this.httpClient.post('http://localhost:3000/users', newUser).subscribe();
   }
 }

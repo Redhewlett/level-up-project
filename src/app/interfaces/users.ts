@@ -1,5 +1,5 @@
 export interface Users {
-  id: number;
+  id: string;
   name: string;
   xp: number;
   gold: number;

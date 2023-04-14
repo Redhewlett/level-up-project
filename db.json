@@ -1,16 +1,22 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Biben",
+      "id": "1",
+      "name": "biben",
       "xp": 500,
       "gold": 100
     },
     {
-      "id": 2,
-      "name": "Jessica",
+      "id": "2",
+      "name": "jessica",
       "xp": 1500,
       "gold": 500
+    },
+    {
+      "id": "1681482710",
+      "name": "florian",
+      "xp": 0,
+      "gold": 0
     }
   ],
   "adventures": [
