@@ -40,8 +40,12 @@
       border-radius: 5px;
       padding: 1rem 1.5rem;
       color: $primary-color;
+      transition: all 0.2s ease-in-out;
       &[disabled] {
         opacity: 0.5;
+      }
+      &:active {
+        transform: translateY(5px);
       }
     }
   }
