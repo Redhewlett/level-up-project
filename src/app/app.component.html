@@ -1,11 +1,13 @@
 <!-- ask for a username  -->
-<div *ngIf="!userService.currentUser; else loggedIn">
-  <h1>Bienvenue sur <strong> LevelUp </strong></h1>
+<div class="loggin" *ngIf="!userService.currentUser; else loggedIn">
+  <header>
+    <h1>Bienvenue sur <strong> LevelUp </strong></h1>
 
-  <p>
-    Pour commencer, veuillez entrer votre nom de joueur. Si votre nom existe
-    nous chargerons votre progression.
-  </p>
+    <p>
+      Pour commencer, veuillez entrer votre nom de joueur.<br />
+      Si votre nom existe nous chargerons votre progression.
+    </p>
+  </header>
 
   <form
     [formGroup]="form"

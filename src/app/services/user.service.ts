@@ -52,7 +52,6 @@ export class UserService {
       gold: 0,
     };
 
-    console.log(newUser);
     this.httpClient.post('http://localhost:3000/users', newUser).subscribe();
   }
 }

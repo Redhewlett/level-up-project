@@ -1,0 +1,48 @@
+@import "src/variables.scss";
+
+@mixin flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loggin {
+  width: 100%;
+  height: 100%;
+  padding-top: 10rem;
+  @include flex;
+
+  gap: 10rem;
+  & header {
+    @include flex;
+    gap: 1.5rem;
+    & h1 {
+      font-weight: 400;
+    }
+  }
+  & form {
+    width: 100%;
+    height: max-content;
+    @include flex;
+    gap: 1rem;
+    & input {
+      width: 20%;
+      height: 50px;
+      color: $primary-color;
+      font-size: $regular-font;
+      background: none;
+      border: 1px solid $primary-color;
+      border-radius: 5px;
+    }
+    & button {
+      background-color: rgba(104, 104, 104, 0.301);
+      border: none;
+      border-radius: 5px;
+      padding: 1rem 1.5rem;
+      color: $primary-color;
+      &[disabled] {
+        opacity: 0.5;
+      }
+    }
+  }
+}
