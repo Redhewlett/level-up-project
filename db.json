@@ -2,13 +2,13 @@
   "users": [
     {
       "id": 1,
-      "name": "ladmya",
+      "name": "Biben",
       "xp": 500,
       "gold": 100
     },
     {
       "id": 2,
-      "name": "JESSICA",
+      "name": "Jessica",
       "xp": 1500,
       "gold": 500
     }
@@ -16,17 +16,17 @@
   "adventures": [
     {
       "id": 1,
-      "name": "Le sac à dos de Ladmya",
+      "name": "Ladmya's backpack",
       "levelRequired": 1,
-      "winXP": 100,
-      "winGold": 50
+      "xp": 100,
+      "gold": 50
     },
     {
       "id": 2,
-      "name": "La montagne Nakkache de la mort",
+      "name": "The Deathly Mount Nakkache",
       "levelRequired": 5,
-      "winXP": 500,
-      "winGold": 250
+      "xp": 500,
+      "gold": 250
     }
   ],
   "settings": {

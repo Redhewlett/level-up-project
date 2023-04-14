@@ -1,7 +1,35 @@
-<div class="container">
-  <app-header [title]="'Level Up'"></app-header>
+<!-- ask for a username  -->
+<div *ngIf="!userService.currentUser; else loggedIn">
+  <h1>Bienvenue sur <strong> LevelUp </strong></h1>
 
-  <router-outlet></router-outlet>
+  <p>
+    Pour commencer, veuillez entrer votre nom de joueur. Si votre nom existe
+    nous chargerons votre progression.
+  </p>
 
-  <app-footer></app-footer>
+  <form [formGroup]="form">
+    <label for="userName">Nom de joueur</label>
+    <input type="text" formControlName="userName" />
+    <br />
+
+    <div *ngIf="form.dirty">
+      <p *ngIf="form.get('userName')?.hasError('required')">Name is required</p>
+      <p *ngIf="form.get('userName')?.hasError('minlength')">
+        Name must be at least 3 characters
+      </p>
+    </div>
+
+    <button
+      [disabled]="form.status === 'INVALID'"
+      type="submit"
+      (click)="userService.setCurrentUser(form.value.userName)"
+    >
+      Se connecter
+    </button>
+  </form>
 </div>
+<!-- when whe have his name show the game -->
+<ng-template #loggedIn>
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+</ng-template>

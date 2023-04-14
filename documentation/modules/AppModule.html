@@ -60,13 +60,13 @@
 <title>cluster_AppModule_declarations</title>
 <polygon fill="none" stroke="black" points="168,-40.8 168,-92.8 1350,-92.8 1350,-40.8 168,-40.8"/>
 </g>
-<g id="clust13" class="cluster">
-<title>cluster_AppModule_bootstrap</title>
-<polygon fill="none" stroke="black" points="618,-170.8 618,-222.8 742,-222.8 742,-170.8 618,-170.8"/>
-</g>
 <g id="clust11" class="cluster">
 <title>cluster_AppModule_imports</title>
 <polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 160,-92.8 160,-40.8 16,-40.8"/>
+</g>
+<g id="clust13" class="cluster">
+<title>cluster_AppModule_bootstrap</title>
+<polygon fill="none" stroke="black" points="618,-170.8 618,-222.8 742,-222.8 742,-170.8 618,-170.8"/>
 </g>
 <!-- AdventureComponent -->
 <g id="node1" class="node">
@@ -301,9 +301,8 @@ import { UserInfoComponent } from &#x27;./components/user-info/user-info.compone
 import { UserStatsComponent } from &#x27;./components/user-stats/user-stats.component&#x27;;
 import { AdventureComponent } from &#x27;./components/adventure/adventure.component&#x27;;
 import { AdventureInfoComponent } from &#x27;./components/adventure-info/adventure-info.component&#x27;;
-import { StatisticsComponent } from &#x27;./components/statistics/statistics.component&#x27;;
-import { EquipmentsComponent } from &#x27;./components/equipments/equipments.component&#x27;;
-
+import { HttpClientModule } from &#x27;@angular/common/http&#x27;;
+import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 @NgModule({
   declarations: [
     AppComponent,
@@ -314,17 +313,17 @@ import { EquipmentsComponent } from &#x27;./components/equipments/equipments.com
     UserStatsComponent,
     AdventureComponent,
     AdventureInfoComponent,
-    StatisticsComponent,
-    EquipmentsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 </code></pre>
     </div>
 </div>
