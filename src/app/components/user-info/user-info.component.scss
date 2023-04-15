@@ -1,0 +1,52 @@
+@import "/src/variables.scss";
+
+.userInfo {
+  &__container {
+    width: 100%;
+    background-color: blueviolet;
+    display: flex;
+    gap: 2rem;
+  }
+  &__main {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    & h2 {
+      width: 100%;
+      text-align: right;
+      font-size: $font-regular;
+    }
+    &__xpBar {
+      width: 100%;
+      height: 8px;
+      background-color: yellowgreen;
+      border-radius: 20px;
+      position: relative;
+      &__inner {
+        height: 100%;
+        border-radius: 20px;
+        display: block;
+        background-color: crimson;
+      }
+      &__txt {
+        font-size: $font-small;
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+      }
+    }
+    &__nextLvl {
+      width: 100%;
+      opacity: 0.6;
+      text-align: right;
+      font-size: $font-small;
+    }
+  }
+  &__avatar {
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: cadetblue;
+  }
+}

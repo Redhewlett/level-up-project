@@ -16,19 +16,47 @@ export class SettingService {
   constructor(private httpClient: HttpClient) {}
 
   public getSettings(): Observable<Settings> {
-    if (!this.settings) {
-      return this.httpClient
-        .get<Settings>('http://localhost:3000/settings')
-        .pipe(
-          map((data: Settings) => {
-            this.settings = data;
-            return data;
-          })
-        );
-    } else {
-      return new Observable<Settings>((observer) => {
-        observer.next(this.settings);
-      });
+    return this.httpClient.get<Settings>('http://localhost:3000/settings').pipe(
+      map((data: Settings) => {
+        this.settings = { ...data };
+        return data;
+      })
+    );
+  }
+
+  public computeLevel(xp: number): number {
+    let level = 1;
+    let xpNeeded = this.settings.xpFirstLevel;
+    while (xp >= xpNeeded && level < this.settings.maxLevel) {
+      xpNeeded *= this.settings.xpRatioByLevel;
+      level++;
     }
+    return level;
+  }
+
+  public computeXpNeeded(xp: number): number {
+    let level = 1;
+    let xpNeeded = this.settings.xpFirstLevel;
+    while (xp >= xpNeeded && level < this.settings.maxLevel) {
+      xpNeeded *= this.settings.xpRatioByLevel;
+      level++;
+    }
+    return xpNeeded - xp;
+  }
+
+  public computeXpPourcentage(xp: number): number {
+    // calculate xp needed for previous level
+    let xpNeeded = this.settings.xpFirstLevel;
+    let level = 1;
+    while (xp >= xpNeeded && level < this.settings.maxLevel) {
+      xpNeeded *= this.settings.xpRatioByLevel;
+      level++;
+    }
+    const prevLvlXp = xpNeeded / this.settings.xpRatioByLevel;
+    const xpNextLvl = xpNeeded - prevLvlXp;
+    const xpLeft = xp - prevLvlXp;
+
+    console.log(xpLeft, prevLvlXp, xpNextLvl);
+    return (xpLeft * 100) / xpNextLvl;
   }
 }

@@ -1,24 +1,26 @@
 <header>
-  <h1>LevelUp</h1>
-  <nav>
-    <ul>
-      <li>
-        <a
-          [routerLinkActiveOptions]="{ exact: true }"
-          routerLinkActive="active"
-          routerLink="/home"
-          >Accueil</a
-        >
-      </li>
-      <li>
-        <a
-          [routerLinkActiveOptions]="{ exact: true }"
-          routerLinkActive="active"
-          routerLink="settings"
-          >Paramètres</a
-        >
-      </li>
-    </ul>
-  </nav>
-  <!-- user xp name and avatar here -->
+  <div class="left">
+    <h1>LevelUp</h1>
+    <nav>
+      <ul>
+        <li>
+          <a
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="active"
+            routerLink="/home"
+            >Accueil</a
+          >
+        </li>
+        <li>
+          <a
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="active"
+            routerLink="settings"
+            >Paramètres</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <app-user-info class="right"></app-user-info>
 </header>

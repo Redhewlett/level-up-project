@@ -1,31 +1,43 @@
-@import "../../../variables.scss";
+@import "/src/variables.scss";
 
 header {
-  padding: 50px 5px;
+  width: 100%;
+  padding: 40px 5px;
   background-color: chocolate;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   font-weight: 400;
-  & h1 {
-    font-size: 1.5rem;
+  & .right {
+    width: 30%;
   }
-  & nav {
-    & ul {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-      & a {
-        color: $primary-color;
-        text-decoration: none;
-        font-size: 1.2rem;
-        opacity: 0.5;
-        &:hover {
-          opacity: 1;
+  & .left {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & h1 {
+      width: 50%;
+      font-size: 1.5rem;
+    }
+    & nav {
+      width: 50%;
+      & ul {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+        & a {
+          color: $primary-color;
+          text-decoration: none;
+          font-size: 1.2rem;
+          opacity: 0.5;
+          &:hover {
+            opacity: 1;
+          }
         }
-      }
-      & .active {
-        opacity: 1;
-        font-weight: bold;
+        & .active {
+          opacity: 1;
+          font-weight: bold;
+        }
       }
     }
   }

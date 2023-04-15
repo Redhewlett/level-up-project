@@ -7,7 +7,8 @@ import { Observable, map } from 'rxjs';
 })
 export class UserService {
   public users: Users[] = [];
-  public currentUser: string = '';
+
+  public currentUser: Users | null = null
 
   constructor(private httpClient: HttpClient) {}
 
@@ -36,15 +37,13 @@ export class UserService {
   public setCurrentUser(user: string): void {
     const userFound = this.getUserByName(user);
     if (userFound) {
-      this.currentUser = userFound.name;
+      this.currentUser = userFound;
     } else {
-      this.currentUser = user;
       this.setUser(user);
     }
   }
 
   private setUser(user: string): void {
-    // use POST to create a new user
     const newUser: Users = {
       id: Math.floor(Date.now() / 1000).toString(),
       name: user.toLocaleLowerCase(),
@@ -52,6 +51,10 @@ export class UserService {
       gold: 0,
     };
 
+    this.currentUser = newUser;
+
     this.httpClient.post('http://localhost:3000/users', newUser).subscribe();
   }
+
+  // get the settings from db to calc the current lvl, xp % and xp % left before nxt lvl
 }

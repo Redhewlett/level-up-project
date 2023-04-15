@@ -4,15 +4,6 @@ $primary-accent-color: #08a9c7;
 $secondary-accent-color: #52b0ac;
 $secondary-color: #dcc62e;
 $tertiary-color: #c7c208;
-$small-font: 10px;
-$regular-font: 14px;
-$bigger-font: 18px;
-
-:export {
-  body-bg: $body-bg;
-  primarycolor: $primary-color;
-  primaryaccentcolor: $primary-accent-color;
-  secondaryaccentcolor: $secondary-accent-color;
-  secondarycolor: $secondary-color;
-  tertiarycolor: $tertiary-color;
-}
+$font-small: 10px;
+$font-regular: 14px;
+$font-big: 18px;
