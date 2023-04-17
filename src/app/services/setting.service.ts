@@ -56,7 +56,6 @@ export class SettingService {
     const xpNextLvl = xpNeeded - prevLvlXp;
     const xpLeft = xp - prevLvlXp;
 
-    console.log(xpLeft, prevLvlXp, xpNextLvl);
     return (xpLeft * 100) / xpNextLvl;
   }
 }

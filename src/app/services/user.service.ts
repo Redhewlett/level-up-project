@@ -8,7 +8,12 @@ import { Observable, map } from 'rxjs';
 export class UserService {
   public users: Users[] = [];
 
-  public currentUser: Users | null = null
+  public currentUser: Users | null = {
+    id: '65Fhdeo72_',
+    name: 'biben',
+    xp: 2812,
+    gold: 2000,
+  };
 
   constructor(private httpClient: HttpClient) {}
 

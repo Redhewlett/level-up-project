@@ -3,7 +3,6 @@
 .userInfo {
   &__container {
     width: 100%;
-    background-color: blueviolet;
     display: flex;
     gap: 2rem;
   }
@@ -20,14 +19,14 @@
     &__xpBar {
       width: 100%;
       height: 8px;
-      background-color: yellowgreen;
+      background-color: $transparent;
       border-radius: 20px;
       position: relative;
       &__inner {
         height: 100%;
         border-radius: 20px;
         display: block;
-        background-color: crimson;
+        background-color: $primary-accent-color;
       }
       &__txt {
         font-size: $font-small;
@@ -47,6 +46,9 @@
     width: 100px;
     aspect-ratio: 1;
     border-radius: 50%;
-    background-color: cadetblue;
+    background: url("../../../assets/avatar.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
