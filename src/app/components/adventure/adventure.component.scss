@@ -1,0 +1,47 @@
+@import "../../../variables.scss";
+.adventure {
+  width: 100%;
+  font-size: $font-regular;
+  padding-inline: 2rem;
+  padding-bottom: 3rem;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+    &__title {
+      width: 100%;
+      text-align: right;
+      margin-bottom: 0.5rem;
+    }
+    & .disabled:hover {
+      cursor: not-allowed;
+    }
+    &__item {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      border-top: 2px solid $transparent;
+      border-bottom: 0px;
+      border-left: 2px solid $transparent;
+      border-right: 2px solid $transparent;
+      border-radius: 5px;
+      &__name {
+        color: $transparent;
+        transition: color 0.3s ease-in-out;
+      }
+      &:hover {
+        border: 2px solid white;
+        cursor: pointer;
+      }
+      &:hover &__name {
+        color: white;
+      }
+      &:last-of-type {
+        border-bottom: 2px solid $transparent;
+        &:hover {
+          border-bottom: 2px solid white;
+        }
+      }
+    }
+  }
+}

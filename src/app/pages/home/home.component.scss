@@ -3,6 +3,7 @@
   height: 100%;
   padding: 2rem;
   // background-color: #934848a3;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  column-gap: 1.5rem;
 }

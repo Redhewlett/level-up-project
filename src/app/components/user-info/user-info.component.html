@@ -14,7 +14,7 @@
     <div class="userInfo__main__xpBar">
       <p class="userInfo__main__xpBar__txt">
         Niveau :&nbsp;
-        {{ userService.currentUser && lvl }}
+        {{ userService.currentUser && userService.lvl }}
       </p>
       <span
         class="userInfo__main__xpBar__inner"
@@ -27,7 +27,7 @@
       ></span>
     </div>
     <p class="userInfo__main__nextLvl">
-      prochain niveau dans {{ xpLeftToNextLvl }} points
+      prochain niveau dans {{ userService.xpLeftToNextLvl }} points
     </p>
   </div>
   <!-- use optimized img property ng -->

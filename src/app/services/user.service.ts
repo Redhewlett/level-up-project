@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Users } from '../interfaces/users';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { SettingService } from './setting.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -15,7 +16,17 @@ export class UserService {
     gold: 2000,
   };
 
-  constructor(private httpClient: HttpClient) {}
+  public lvl: number = 0;
+  public xpLeftToNextLvl: number = 0;
+
+  constructor(private httpClient: HttpClient, SettingService: SettingService) {
+    if (this.currentUser) {
+      this.lvl = SettingService.computeLevel(this.currentUser.xp);
+      this.xpLeftToNextLvl = SettingService.computeXpNeeded(
+        this.currentUser.xp
+      );
+    }
+  }
 
   public getUsers(): Observable<Users[]> {
     if (!this.users.length) {
