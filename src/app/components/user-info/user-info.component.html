@@ -1,6 +1,36 @@
-Liste Users
-<ul>
-  <li *ngFor="let item of userService.users; let i = index">
-    {{item.name}}
-  </li>
-</ul>
+<div class="userInfo__container">
+  <div class="userInfo__main">
+    <h2>
+      Bonjour
+      {{
+        userService.currentUser &&
+          userService.currentUser.name.charAt(0).toUpperCase() +
+            userService.currentUser.name.slice(
+              1,
+              userService.currentUser.name.length
+            )
+      }}
+    </h2>
+    <div class="userInfo__main__xpBar">
+      <p class="userInfo__main__xpBar__txt">
+        Niveau :&nbsp;
+        {{ userService.currentUser && userService.lvl }}
+      </p>
+      <span
+        class="userInfo__main__xpBar__inner"
+        [ngStyle]="{
+          width:
+            userService.currentUser &&
+            SettingService.computeXpPourcentage(userService.currentUser.xp) +
+              '%'
+        }"
+      ></span>
+    </div>
+    <p class="userInfo__main__nextLvl">
+      prochain niveau dans {{ userService.xpLeftToNextLvl }} points
+    </p>
+  </div>
+  <!-- use optimized img property ng -->
+  <!-- <img src="" alt="userService.currentUser" /> -->
+  <div class="userInfo__avatar"></div>
+</div>
