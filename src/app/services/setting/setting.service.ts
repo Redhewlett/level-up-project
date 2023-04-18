@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Setting } from 'src/app/interfaces/setting';
+import { Settings } from 'src/app/interfaces/settings';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -9,13 +9,13 @@ import { map } from 'rxjs/operators';
 })
 export class SettingService {
 
-  public settings: Setting[] = [];
+  public settings: Settings[] = [];
 
   constructor(private httpclient: HttpClient) { }
 
-  public getSetting(): Observable<Setting[]> {
-    return this.httpclient.get<Setting[]>('http://localhost:3000/settings').pipe(
-      map((settings: Setting[]) => {
+  public getSetting(): Observable<Settings[]> {
+    return this.httpclient.get<Settings[]>('http://localhost:3000/settings').pipe(
+      map((settings: Settings[]) => {
         this.settings = settings;
         return settings;
       })

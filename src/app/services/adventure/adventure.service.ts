@@ -1,30 +1,31 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map} from 'rxjs';
-import { Adventure } from 'src/app/interfaces/adventure';
-import { Setting } from 'src/app/interfaces/setting';
+import { Adventures } from 'src/app/interfaces/adventures';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdventureService {
 
-  public adventures: Adventure[] = [];
+  public adventures: Adventures[] = [];
 
   constructor(private httpclient: HttpClient) { }
 
-  public getAdventures(): Observable<Adventure[]> {
-    return this.httpclient.get<Adventure[]>('http://localhost:3000/adventures').pipe(
-      map((adventures: Adventure[]) => {
+  public getAdventures(): Observable<Adventures[]> {
+    return this.httpclient.get<Adventures[]>('http://localhost:3000/adventures').pipe(
+      map((adventures: Adventures[]) => {
         this.adventures = adventures;
         return adventures;
       })
     )
   }
 
-  public getAdventureById(id: number): string {
-    this.getAdventures().subscribe();
-    let found =  this.adventures.find(element => element.id === id);
+  public getAdventureById(id: number): string | undefined {
+    if (!this.adventures) {
+      this.getAdventures().subscribe();
+    }
+    let found = this.adventures.find(element => element.id === id);
     return found?.name;
   }
 }

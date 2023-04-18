@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
+import { UserI } from '../../../../../first_project/src/models/user.model';
 
 @Component({
   selector: 'app-user-info',
@@ -9,7 +10,7 @@ import { UserService } from '../../services/user/user.service';
 export class UserInfoComponent {
 
   constructor(public userService: UserService){
-    userService.getUsers().subscribe()
+    // userService.getUserByName("Biben");
   }
 
 
