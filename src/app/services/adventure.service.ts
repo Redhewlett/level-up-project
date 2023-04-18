@@ -9,6 +9,8 @@ import { Observable, map } from 'rxjs';
 export class AdventureService {
   public adventures: Adventures[] = [];
 
+  public currentAdventure: Adventures | null = null;
+
   constructor(private httpClient: HttpClient) {}
 
   public getAdventures(): Observable<Adventures[]> {
@@ -25,6 +27,20 @@ export class AdventureService {
       return new Observable<Adventures[]>((observer) => {
         observer.next(this.adventures);
       });
+    }
+  }
+
+  private getAdventureByName(name: string) {
+    if (this.adventures.find((adventure) => adventure.name === name)) {
+      return this.adventures.find((adventure) => adventure.name === name);
+    }
+    return null;
+  }
+
+  public setCurrentAdventure(adventure: string) {
+    const adventureFound = this.getAdventureByName(adventure);
+    if (adventureFound) {
+      this.currentAdventure = adventureFound;
     }
   }
 }

@@ -1,1 +1,24 @@
-<p>adventure-info works!</p>
+<div class="informationSquare">
+  <h3>Info donjon</h3>
+  <div class="adventure__info">
+    <p
+      class="adventure__info__noDonjon"
+      *ngIf="!AdventureService.currentAdventure; else adventureSelected"
+    >
+      Selectionnez un donjon
+    </p>
+
+    <ng-template #adventureSelected>
+      <div class="adventure__info__block">
+        <div class="adventure__info__block__txt">
+          <p>
+            Expériences : {{ AdventureService.currentAdventure?.xp }} points
+          </p>
+          <p>Argent : {{ AdventureService.currentAdventure?.gold }} $</p>
+        </div>
+        <div class="adventure__info__block__loot"></div>
+        <button class="btnMain">Lancer l'expédition</button>
+      </div>
+    </ng-template>
+  </div>
+</div>

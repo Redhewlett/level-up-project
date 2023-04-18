@@ -42,7 +42,7 @@ export class SettingService {
       xpNeeded *= this.settings.xpRatioByLevel;
       level++;
     }
-    return xpNeeded - xp;
+    return Math.floor(xpNeeded - xp);
   }
 
   public computeXpPourcentage(xp: number): number {

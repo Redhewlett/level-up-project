@@ -9,9 +9,14 @@ import { SettingService } from './setting.service';
 export class UserService {
   public users: Users[] = [];
 
-  public currentUser: Users | null = null;
+  public currentUser: Users | null = {
+    name: 'John',
+    xp: 9999999999,
+    gold: 88888880,
+    id: '1',
+  };
 
-  public lvl: number = 1;
+  public lvl: number = 46;
   public xpLeftToNextLvl: number = 0;
 
   constructor(

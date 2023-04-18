@@ -3,8 +3,10 @@
   <div class="adventure__list">
     <p class="adventure__list__title">Niveau requis</p>
     <div
+      (click)="AdventureService.setCurrentAdventure(adventure.name)"
       [ngClass]="{
         'disabled': UserService.lvl < adventure.levelRequired,
+        'selected': AdventureService.currentAdventure?.name === adventure.name,
       }"
       class="adventure__list__item"
       *ngFor="let adventure of AdventureService.adventures; let i = index"
