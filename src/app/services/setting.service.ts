@@ -31,6 +31,7 @@ export class SettingService {
       xpNeeded *= this.settings.xpRatioByLevel;
       level++;
     }
+    console.log('level', level);
     return level;
   }
 
@@ -45,6 +46,7 @@ export class SettingService {
   }
 
   public computeXpPourcentage(xp: number): number {
+    if (xp === 0) return 0;
     // calculate xp needed for previous level
     let xpNeeded = this.settings.xpFirstLevel;
     let level = 1;

@@ -34,3 +34,7 @@
   <!-- <img src="" alt="userService.currentUser" /> -->
   <div class="userInfo__avatar"></div>
 </div>
+{{
+  userService.currentUser &&
+    SettingService.computeXpPourcentage(userService.currentUser.xp)
+}}
