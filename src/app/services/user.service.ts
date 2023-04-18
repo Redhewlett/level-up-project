@@ -9,24 +9,15 @@ import { SettingService } from './setting.service';
 export class UserService {
   public users: Users[] = [];
 
-  public currentUser: Users | null = {
-    id: '65Fhdeo72_',
-    name: 'biben',
-    xp: 2812,
-    gold: 2000,
-  };
+  public currentUser: Users | null = null;
 
-  public lvl: number = 0;
+  public lvl: number = 1;
   public xpLeftToNextLvl: number = 0;
 
-  constructor(private httpClient: HttpClient, SettingService: SettingService) {
-    if (this.currentUser) {
-      this.lvl = SettingService.computeLevel(this.currentUser.xp);
-      this.xpLeftToNextLvl = SettingService.computeXpNeeded(
-        this.currentUser.xp
-      );
-    }
-  }
+  constructor(
+    private httpClient: HttpClient,
+    public SettingService: SettingService
+  ) {}
 
   public getUsers(): Observable<Users[]> {
     if (!this.users.length) {
@@ -54,6 +45,8 @@ export class UserService {
     const userFound = this.getUserByName(user);
     if (userFound) {
       this.currentUser = userFound;
+      this.lvl = this.SettingService.computeLevel(userFound.xp);
+      this.xpLeftToNextLvl = this.SettingService.computeXpNeeded(userFound.xp);
     } else {
       this.setUser(user);
     }
@@ -68,6 +61,7 @@ export class UserService {
     };
 
     this.currentUser = newUser;
+    this.xpLeftToNextLvl = this.SettingService.computeXpNeeded(newUser.xp);
 
     this.httpClient.post('http://localhost:3000/users', newUser).subscribe();
   }
