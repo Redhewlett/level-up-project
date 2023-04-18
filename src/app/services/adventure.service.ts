@@ -11,6 +11,9 @@ export class AdventureService {
 
   public currentAdventure: Adventures | null = null;
 
+  public currentXpRange: { min: number; max: number } = { min: 0, max: 0 };
+  public currentGoldRange: { min: number; max: number } = { min: 0, max: 0 };
+
   constructor(private httpClient: HttpClient) {}
 
   public getAdventures(): Observable<Adventures[]> {
@@ -41,6 +44,16 @@ export class AdventureService {
     const adventureFound = this.getAdventureByName(adventure);
     if (adventureFound) {
       this.currentAdventure = adventureFound;
+      this.computeAverageXp(adventureFound.xp);
+      this.computeAverageGold(adventureFound.gold);
     }
+  }
+  // you can win xp between adventure.xp / 2 and adventure.xp
+  private computeAverageXp(xp: number) {
+    this.currentXpRange = { min: Math.floor(xp / 2), max: xp };
+  }
+  // you can win xp between adventure.gold / 3 and adventure.gold
+  private computeAverageGold(gold: number) {
+    this.currentGoldRange = { min: Math.floor(gold / 3), max: gold };
   }
 }

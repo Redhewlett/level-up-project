@@ -12,9 +12,13 @@
       <div class="adventure__info__block">
         <div class="adventure__info__block__txt">
           <p>
-            Expériences : {{ AdventureService.currentAdventure?.xp }} points
+            Expériences : {{ AdventureService.currentXpRange.min }} à
+            {{ AdventureService.currentXpRange.max }} points
           </p>
-          <p>Argent : {{ AdventureService.currentAdventure?.gold }} $</p>
+          <p>
+            Argent : {{ AdventureService.currentGoldRange.min }} à
+            {{ AdventureService.currentGoldRange.max }} $
+          </p>
         </div>
         <div class="adventure__info__block__loot"></div>
         <button class="btnMain">Lancer l'expédition</button>
