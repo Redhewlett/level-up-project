@@ -13,7 +13,13 @@ export class SettingService {
     maxLevel: 0,
   };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+    this.httpClient.get<Settings>('http://localhost:3000/settings').pipe(
+      map((data: Settings) => {
+        this.settings = { ...data };
+      })
+    );
+  }
 
   public getSettings(): Observable<Settings> {
     return this.httpClient.get<Settings>('http://localhost:3000/settings').pipe(

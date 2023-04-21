@@ -42,6 +42,15 @@ export class AdventureService {
 
   public setCurrentAdventure(adventure: string) {
     const adventureFound = this.getAdventureByName(adventure);
+    // reset if it's the same
+    if (
+      adventureFound &&
+      this.currentAdventure &&
+      adventureFound.name === this.currentAdventure.name
+    ) {
+      this.currentAdventure = null;
+      return;
+    }
     if (adventureFound) {
       this.currentAdventure = adventureFound;
       this.computeAverageXp(adventureFound.xp);

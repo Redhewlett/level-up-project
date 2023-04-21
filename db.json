@@ -80,5 +80,102 @@
     "xpFirstLevel": 1000,
     "xpRatioByLevel": 1.5,
     "maxLevel": 50
+  },
+  "loot": {
+    "tier1": {
+      "items": [
+        {
+          "id": "764z",
+          "name": "axe",
+          "stat": {
+            "attaque": 20
+          }
+        },
+        {
+          "id": "452x",
+          "name": "light-mithrill",
+          "stat": {
+            "défense": 35
+          }
+        },
+        {
+          "id": "452x",
+          "name": "newbie's-belt",
+          "stat": {
+            "pv": 100
+          }
+        },
+        {
+          "id": "216de",
+          "name": "silver-necklace",
+          "stat": {
+            "taux critique": 5
+          }
+        },
+        {
+          "id": "d349",
+          "name": "reactive-forearms",
+          "stat": {
+            "dégats critique": 5
+          }
+        },
+        {
+          "id": "g753144",
+          "name": "unique-ring",
+          "stat": {
+            "défense": 30
+          }
+        }
+      ],
+      "retailsFor": 30
+    },
+    "tier2": {
+      "items": [
+        {
+          "id": "41eds",
+          "name": "forged-piece-of-iron",
+          "stat": {
+            "attaque": 90
+          }
+        },
+        {
+          "id": "961de",
+          "name": "forged-armor",
+          "stat": {
+            "défense": 55
+          }
+        },
+        {
+          "id": "76ez3",
+          "name": "dark-helm",
+          "stat": {
+            "défense": 70
+          }
+        },
+        {
+          "id": "12zs9",
+          "name": "reinforced-boots",
+          "stat": {
+            "defense": 80
+          }
+        },
+        {
+          "id": "556d",
+          "name": "cape-of-honor",
+          "stat": {
+            "dégats critique": 20
+          }
+        },
+        {
+          "id": "13d5s",
+          "name": "red-talisman",
+          "stat": {
+            "pv": 200
+          }
+        }
+      ],
+      "retailsFor": 150
+    },
+    "tier3": []
   }
 }
