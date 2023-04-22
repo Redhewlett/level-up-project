@@ -7,24 +7,26 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root',
 })
 export class SettingService {
-  public settings: Settings = {
+  private _settings: Settings = {
     xpFirstLevel: 0,
     xpRatioByLevel: 0,
     maxLevel: 0,
   };
 
-  constructor(private httpClient: HttpClient) {
-    this.httpClient.get<Settings>('http://localhost:3000/settings').pipe(
-      map((data: Settings) => {
-        this.settings = { ...data };
-      })
-    );
+  public get settings(): Settings {
+    return this._settings;
   }
 
-  public getSettings(): Observable<Settings> {
+  public set settings(value: Settings) {
+    this._settings = value;
+  }
+
+  constructor(private httpClient: HttpClient) {}
+
+  public getSettings() {
     return this.httpClient.get<Settings>('http://localhost:3000/settings').pipe(
       map((data: Settings) => {
-        this.settings = { ...data };
+        this.settings = data;
         return data;
       })
     );
@@ -37,7 +39,6 @@ export class SettingService {
       xpNeeded *= this.settings.xpRatioByLevel;
       level++;
     }
-    console.log('level', level);
     return level;
   }
 

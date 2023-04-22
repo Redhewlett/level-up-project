@@ -5,30 +5,31 @@
     <table>
       <tr>
         <td class="statistics__name">Attaque</td>
-        <td class="statistics__number">100</td>
+        <td class="statistics__number">{{ this.userStats.attaque }}</td>
       </tr>
       <tr>
         <td class="statistics__name">Défense</td>
-        <td class="statistics__number">100</td>
+        <td class="statistics__number">{{ this.userStats.defense }}</td>
       </tr>
       <tr>
         <td class="statistics__name">Taux Critique</td>
-        <td class="statistics__number">10</td>
+        <td class="statistics__number">{{ this.userStats.critRate }}</td>
       </tr>
       <tr>
         <td class="statistics__name">Dégats Critique</td>
-        <td class="statistics__number">10</td>
+        <td class="statistics__number">{{ this.userStats.critDamage }}</td>
       </tr>
       <tr>
         <td class="statistics__name">PV</td>
-        <td class="statistics__number">1000</td>
+        <td class="statistics__number">{{ this.userStats.hP }}</td>
       </tr>
     </table>
   </div>
   <!-- items -->
   <div class="informationSquare items">
     <h3>Equipements</h3>
-    <p class="items__count">4/6</p>
+    <p class="items__count">{{ this.ItemService.currentItems.length }} / 6</p>
+
     <!-- each item should display its stats with a tooltip -->
     <button class="btnMain">Modifier</button>
   </div>

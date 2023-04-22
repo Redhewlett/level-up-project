@@ -1,11 +1,16 @@
-<div class="informationSquare adventure">
+<div class="informationSquare adventure" *ngIf="UserService.currentUser">
   <h3>Aventure</h3>
   <div class="adventure__list">
     <p class="adventure__list__title">Niveau requis</p>
     <div
-      (click)="AdventureService.setCurrentAdventure(adventure.name)"
+      (click)="
+        selectAdventure(
+          adventure,
+          SettingService.computeLevel(UserService.currentUser.xp)
+        )
+      "
       [ngClass]="{
-        'disabled': UserService.lvl < adventure.levelRequired,
+        'disabled': SettingService.computeLevel(UserService.currentUser.xp) < adventure.levelRequired,
         'selected': AdventureService.currentAdventure?.name === adventure.name,
       }"
       class="adventure__list__item"

@@ -4,25 +4,41 @@
       "id": "1",
       "name": "biben",
       "xp": 2812,
-      "gold": 100
+      "gold": 100,
+      "items": [
+        { "id": "764z", "quantity": 1, "tier":"tier1" },
+        { "id": "452x", "quantity": 1, "tier":"tier1" }
+      ]
     },
     {
       "id": "2",
       "name": "jessica",
       "xp": 1500,
-      "gold": 500
+      "gold": 500,
+      "items": [
+        { "id": "764z", "quantity": 1, "tier":"tier1" },
+        { "id": "452x", "quantity": 1, "tier":"tier1" }
+      ]
     },
     {
       "id": "1681482710",
       "name": "florian",
       "xp": 0,
-      "gold": 0
+      "gold": 0,
+      "items": [
+        { "id": "764z", "quantity": 1, "tier":"tier1" },
+        { "id": "452x", "quantity": 1, "tier":"tier1" }
+      ]
     },
     {
-      "id": "1681485059",
+      "id": "1682096268",
       "name": "ted",
-      "xp": 90000000000,
-      "gold": 9999999
+      "xp": 9000000000,
+      "gold": 999999999,
+      "items": [
+        { "id": "764z", "quantity": 1, "tier":"tier1" },
+        { "id": "452x", "quantity": 1, "tier":"tier1" }
+      ]
     }
   ],
   "adventures": [
@@ -107,14 +123,14 @@
         },
         {
           "id": "216de",
-          "name": "silver-necklace",
+          "name": "lost-necklace",
           "stat": {
             "taux critique": 5
           }
         },
         {
           "id": "d349",
-          "name": "reactive-forearms",
+          "name": "reactive-bracelet",
           "stat": {
             "dégats critique": 5
           }
@@ -133,7 +149,7 @@
       "items": [
         {
           "id": "41eds",
-          "name": "forged-piece-of-iron",
+          "name": "big-iron",
           "stat": {
             "attaque": 90
           }
@@ -176,6 +192,52 @@
       ],
       "retailsFor": 150
     },
-    "tier3": []
+    "tier3": {
+      "items": [
+        {
+          "id": "5sd6",
+          "name": "legendary-sword",
+          "stat": {
+            "attaque": 150
+          }
+        },
+        {
+          "id": "315saw",
+          "name": "legendary-armor",
+          "stat": {
+            "défense": 100
+          }
+        },
+        {
+          "id": "210sa",
+          "name": "legendary-helm",
+          "stat": {
+            "défense": 120
+          }
+        },
+        {
+          "id": "55sel",
+          "name": "zeus-sandals",
+          "stat": {
+            "taux critique": 120
+          }
+        },
+        {
+          "id": "c7ds8",
+          "name": "cape-of-glory",
+          "stat": {
+            "dégats critique": 100
+          }
+        },
+        {
+          "id": "31qsz",
+          "name": "legendary-talisman",
+          "stat": {
+            "pv": 500
+          }
+        }
+      ],
+      "retailsFor": 450
+    }
   }
 }
