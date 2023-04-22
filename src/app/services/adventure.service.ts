@@ -14,13 +14,15 @@ export class AdventureService {
   public currentAdventure: Adventures | null = null;
 
   public currentCompletionTime = 0;
+  public interval: any;
+  public timeLeft = 0;
 
   public currentXpRange = { min: 0, max: 0 };
   public currentGoldRange = { min: 0, max: 0 };
 
   constructor(
     private httpClient: HttpClient,
-    public userService: UserService,
+    public UserService: UserService,
     public SettingService: SettingService
   ) {}
 
@@ -63,6 +65,7 @@ export class AdventureService {
       this.currentAdventure = adventureFound;
       this.computeAverageXp(adventureFound.xp);
       this.computeAverageGold(adventureFound.gold);
+      this.computeCompletionTime();
     }
   }
   // you can win xp between adventure.xp / 2 and adventure.xp
@@ -75,6 +78,29 @@ export class AdventureService {
   }
 
   private computeCompletionTime() {
-    
+    try {
+      if (this.UserService.currentUser && this.currentAdventure) {
+        const userLvl = this.SettingService.computeLevel(
+          this.UserService.currentUser.xp
+        );
+        const bonus = userLvl - this.currentAdventure.levelRequired;
+        this.currentCompletionTime = parseFloat(
+          ((this.currentAdventure.time - bonus * 1000) / 1000 / 60).toFixed(2)
+        );
+        this.timeLeft = this.currentAdventure.time - bonus * 1000;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  public startAdventure() {
+    //use completion time to launch a timer
+    this.interval = setInterval(() => {
+      if (this.timeLeft > 0) {
+        this.timeLeft -= 1000;
+        console.log(this.timeLeft);
+      }
+    }, 1000);
   }
 }
