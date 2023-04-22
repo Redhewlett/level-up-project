@@ -9,7 +9,7 @@
     </p>
 
     <ng-template #adventureSelected>
-      <div class="adventure__info__block">
+      <div *ngIf="AdventureService.currentAdventure" class="adventure__info__block">
         <div class="adventure__info__block__txt">
           <p>
             Expériences : {{ AdventureService.currentXpRange.min }} à
@@ -18,6 +18,9 @@
           <p>
             Argent : {{ AdventureService.currentGoldRange.min }} à
             {{ AdventureService.currentGoldRange.max }} $
+          </p>
+          <p>
+            Temps : {{ (AdventureService.currentAdventure.time /1000) /60 }} minutes
           </p>
         </div>
         <div class="adventure__info__block__loot"></div>

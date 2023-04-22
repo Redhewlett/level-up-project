@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Adventures } from '../interfaces/adventures';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { UserService } from './user.service';
+import { SettingService } from './setting.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +13,16 @@ export class AdventureService {
 
   public currentAdventure: Adventures | null = null;
 
-  public currentXpRange: { min: number; max: number } = { min: 0, max: 0 };
-  public currentGoldRange: { min: number; max: number } = { min: 0, max: 0 };
+  public currentCompletionTime = 0;
 
-  constructor(private httpClient: HttpClient) {}
+  public currentXpRange = { min: 0, max: 0 };
+  public currentGoldRange = { min: 0, max: 0 };
+
+  constructor(
+    private httpClient: HttpClient,
+    public userService: UserService,
+    public SettingService: SettingService
+  ) {}
 
   public getAdventures(): Observable<Adventures[]> {
     if (!this.adventures.length) {
@@ -64,5 +72,9 @@ export class AdventureService {
   // you can win xp between adventure.gold / 3 and adventure.gold
   private computeAverageGold(gold: number) {
     this.currentGoldRange = { min: Math.floor(gold / 3), max: gold };
+  }
+
+  private computeCompletionTime() {
+    
   }
 }

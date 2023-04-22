@@ -6,8 +6,16 @@
       "xp": 2812,
       "gold": 100,
       "items": [
-        { "id": "764z", "quantity": 1, "tier":"tier1" },
-        { "id": "452x", "quantity": 1, "tier":"tier1" }
+        {
+          "id": "764z",
+          "quantity": 1,
+          "tier": "tier1"
+        },
+        {
+          "id": "452x",
+          "quantity": 1,
+          "tier": "tier1"
+        }
       ]
     },
     {
@@ -16,8 +24,16 @@
       "xp": 1500,
       "gold": 500,
       "items": [
-        { "id": "764z", "quantity": 1, "tier":"tier1" },
-        { "id": "452x", "quantity": 1, "tier":"tier1" }
+        {
+          "id": "764z",
+          "quantity": 1,
+          "tier": "tier1"
+        },
+        {
+          "id": "452x",
+          "quantity": 1,
+          "tier": "tier1"
+        }
       ]
     },
     {
@@ -26,8 +42,16 @@
       "xp": 0,
       "gold": 0,
       "items": [
-        { "id": "764z", "quantity": 1, "tier":"tier1" },
-        { "id": "452x", "quantity": 1, "tier":"tier1" }
+        {
+          "id": "764z",
+          "quantity": 1,
+          "tier": "tier1"
+        },
+        {
+          "id": "452x",
+          "quantity": 1,
+          "tier": "tier1"
+        }
       ]
     },
     {
@@ -36,8 +60,26 @@
       "xp": 9000000000,
       "gold": 999999999,
       "items": [
-        { "id": "764z", "quantity": 1, "tier":"tier1" },
-        { "id": "452x", "quantity": 1, "tier":"tier1" }
+        {
+          "id": "764z",
+          "quantity": 1,
+          "tier": "tier1"
+        },
+        {
+          "id": "452x",
+          "quantity": 1,
+          "tier": "tier1"
+        },
+        {
+          "id": "31qsz",
+          "quantity": 1,
+          "tier": "tier3"
+        },
+        {
+          "id": "55sel",
+          "quantity": 1,
+          "tier": "tier3"
+        }
       ]
     }
   ],
@@ -47,49 +89,56 @@
       "name": "Ladmya's backpack",
       "levelRequired": 1,
       "xp": 100,
-      "gold": 50
+      "gold": 50,
+      "time": 60000
     },
     {
       "id": 2,
       "name": "The Deathly Mount Nakkache",
       "levelRequired": 3,
       "xp": 500,
-      "gold": 250
+      "gold": 250,
+      "time": 120000
     },
     {
       "id": 3,
       "name": "Jennifer's imputation hell",
       "levelRequired": 6,
       "xp": 800,
-      "gold": 500
+      "gold": 10000,
+      "time": 130000
     },
     {
       "id": 4,
       "name": "William's desolation",
       "levelRequired": 8,
       "xp": 1000,
-      "gold": 800
+      "gold": 800,
+      "time": 140000
     },
     {
       "id": 5,
       "name": "The unicorn's cave",
       "levelRequired": 12,
       "xp": 1400,
-      "gold": 1800
+      "gold": 1000,
+      "time": 150000
     },
     {
       "id": 6,
       "name": "Portal to the multivers",
       "levelRequired": 24,
-      "xp": 2800,
-      "gold": 2400
+      "xp": 4000,
+      "gold": 1800,
+      "time": 170000
     },
     {
       "id": 7,
       "name": "???",
-      "levelRequired": 46,
-      "xp": 5000,
-      "gold": 3000
+      "levelRequired": 40,
+      "xp": 10000,
+      "gold": 2000,
+      "time": 200000
     }
   ],
   "settings": {
@@ -111,35 +160,35 @@
           "id": "452x",
           "name": "light-mithrill",
           "stat": {
-            "défense": 35
+            "defense": 35
           }
         },
         {
           "id": "452x",
-          "name": "newbie's-belt",
+          "name": "newbies-belt",
           "stat": {
-            "pv": 100
+            "hP": 100
           }
         },
         {
           "id": "216de",
           "name": "lost-necklace",
           "stat": {
-            "taux critique": 5
+            "critRate": 5
           }
         },
         {
           "id": "d349",
           "name": "reactive-bracelet",
           "stat": {
-            "dégats critique": 5
+            "critDamage": 5
           }
         },
         {
           "id": "g753144",
           "name": "unique-ring",
           "stat": {
-            "défense": 30
+            "defense": 30
           }
         }
       ],
@@ -158,14 +207,14 @@
           "id": "961de",
           "name": "forged-armor",
           "stat": {
-            "défense": 55
+            "defense": 55
           }
         },
         {
           "id": "76ez3",
           "name": "dark-helm",
           "stat": {
-            "défense": 70
+            "defense": 70
           }
         },
         {
@@ -179,14 +228,14 @@
           "id": "556d",
           "name": "cape-of-honor",
           "stat": {
-            "dégats critique": 20
+            "critDamage": 20
           }
         },
         {
           "id": "13d5s",
           "name": "red-talisman",
           "stat": {
-            "pv": 200
+            "hP": 200
           }
         }
       ],
@@ -205,35 +254,35 @@
           "id": "315saw",
           "name": "legendary-armor",
           "stat": {
-            "défense": 100
+            "defense": 100
           }
         },
         {
           "id": "210sa",
           "name": "legendary-helm",
           "stat": {
-            "défense": 120
+            "defense": 120
           }
         },
         {
           "id": "55sel",
           "name": "zeus-sandals",
           "stat": {
-            "taux critique": 120
+            "critRate": 120
           }
         },
         {
           "id": "c7ds8",
           "name": "cape-of-glory",
           "stat": {
-            "dégats critique": 100
+            "critDamage": 100
           }
         },
         {
           "id": "31qsz",
           "name": "legendary-talisman",
           "stat": {
-            "pv": 500
+            "hP": 500
           }
         }
       ],

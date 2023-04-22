@@ -29,7 +29,14 @@
   <div class="informationSquare items">
     <h3>Equipements</h3>
     <p class="items__count">{{ this.ItemService.currentItems.length }} / 6</p>
-
+    <div class="items__images">
+      <img
+        *ngFor="let item of this.ItemService.currentItems"
+        title="{{ item.name }}"
+        srcset="assets/images/loot/{{item.name}}.png"
+        alt="{{ item.name }}"
+      />
+    </div>
     <!-- each item should display its stats with a tooltip -->
     <button class="btnMain">Modifier</button>
   </div>

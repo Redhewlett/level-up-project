@@ -22,6 +22,10 @@ export class ItemService {
 
   constructor(private httpClient: HttpClient) {
     this.getItems().subscribe();
+    const items = localStorage.getItem('levelUp-items');
+    if (items) {
+      this.currentItems = JSON.parse(items);
+    }
   }
 
   public getItems() {
@@ -32,7 +36,7 @@ export class ItemService {
     );
   }
 
-  public setCurrentItems({ id, tier }: Item) {
+  public setCurrentItems({ id, tier, quantity }: Item) {
     if (this.currentItems.length === 6) return;
 
     const allTiers = Object.keys(this.items);
@@ -46,5 +50,6 @@ export class ItemService {
     if (!foundItem) return;
 
     this.currentItems = [...this.currentItems, foundItem];
+    localStorage.setItem('levelUp-items', JSON.stringify(this.currentItems));
   }
 }

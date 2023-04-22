@@ -38,6 +38,11 @@ export class UserService {
     if (userFound) {
       localStorage.setItem('levelUp-user', JSON.stringify(userFound));
       this.currentUser = userFound;
+
+      userFound.items.forEach((item: Item) => {
+        this.ItemService.setCurrentItems(item);
+      });
+
       return;
     } else {
       this.createUser(userToSet);
@@ -75,6 +80,7 @@ export class UserService {
 
   public clearUserFromStorage() {
     localStorage.removeItem('levelUp-user');
+    localStorage.removeItem('levelUp-items');
     location.reload();
     location.replace('/');
   }

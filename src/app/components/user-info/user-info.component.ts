@@ -8,6 +8,10 @@ import { SettingService } from 'src/app/services/setting.service';
   styleUrls: ['./user-info.component.scss'],
 })
 export class UserInfoComponent {
+  public userLvl = 1;
+  public userXpPourcent = 0;
+  public userXpNeeded = 0;
+
   constructor(
     public userService: UserService,
     public SettingService: SettingService

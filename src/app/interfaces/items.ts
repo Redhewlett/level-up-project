@@ -7,7 +7,7 @@ export interface Item {
 export interface Equipment {
   id: string;
   name: string;
-  stats: {
+  stat: {
     [key: string]: number;
   };
 }
