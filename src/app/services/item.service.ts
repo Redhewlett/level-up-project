@@ -61,6 +61,19 @@ export class ItemService {
     localStorage.setItem('levelUp-items', JSON.stringify(this.currentItems));
   }
 
+  public getItemsByTier(tier: string) {
+    return this.items[tier as keyof Loot].items;
+  }
+
+  public getItemTier(id: string) {
+    const allTiers = Object.keys(this.items);
+    const foundTier = allTiers.find((tierName) =>
+      this.items[tierName as keyof Loot].items.find((item) => item.id === id)
+    );
+    if (!foundTier) return '';
+    return foundTier;
+  }
+
   public rewardTier(adventureLvl: number) {
     switch (true) {
       case adventureLvl <= 6:

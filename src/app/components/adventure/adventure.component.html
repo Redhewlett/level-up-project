@@ -82,6 +82,19 @@
             AdventureService.adventureLoot.tier
           )?.name
         }}"
+        title="{{
+          this.ItemService.getItem(
+            AdventureService.adventureLoot.id,
+            AdventureService.adventureLoot.tier
+          )!
+            | item
+              : this.ItemService.getItemTier(
+                  this.ItemService.getItem(
+                    AdventureService.adventureLoot.id,
+                    AdventureService.adventureLoot.tier
+                  )!.id
+                )
+        }}"
       />
     </div>
     <button class="btnMain" (click)="AdventureService.resetAdventure()">

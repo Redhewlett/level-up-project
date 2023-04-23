@@ -32,7 +32,26 @@
             {{ AdventureService.currentGoldRange.max }} $
           </p>
         </div>
-        <div class="adventure__info__block__loot"></div>
+        <div class="adventure__info__block__loot">
+          <img
+            *ngFor="
+              let item of this.ItemService.getItemsByTier(
+                this.ItemService.rewardTier(
+                  AdventureService.currentAdventure.levelRequired
+                )
+              )
+            "
+            src="/assets/images/loot/{{ item.name }}.png"
+            alt="{{ item.name }}"
+            title="{{
+              item
+                | item
+                  : this.ItemService.rewardTier(
+                      AdventureService.currentAdventure.levelRequired
+                    )
+            }}"
+          />
+        </div>
         <button
           class="btnMain"
           (click)="this.AdventureService.startAdventure()"

@@ -32,7 +32,7 @@
     <div class="items__images">
       <img
         *ngFor="let item of this.ItemService.currentItems"
-        title="{{ item.name }}"
+        title="{{ item | item : this.ItemService.getItemTier(item.id) }}"
         srcset="assets/images/loot/{{item.name}}.png"
         alt="{{ item.name }}"
       />
@@ -41,3 +41,4 @@
     <button class="btnMain">Modifier</button>
   </div>
 </div>
+

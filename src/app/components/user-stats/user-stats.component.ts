@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserStats } from 'src/app/interfaces/users';
 import { ItemService } from 'src/app/services/item.service';
 import { UserService } from 'src/app/services/user.service';
+import { AdventureService } from 'src/app/services/adventure.service';
 
 @Component({
   selector: 'app-user-stats',
@@ -26,8 +27,9 @@ export class UserStatsComponent implements OnInit {
   }
 
   constructor(
-    private UserService: UserService,
-    public ItemService: ItemService
+    public UserService: UserService,
+    public ItemService: ItemService,
+    public AdventureService: AdventureService
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +39,7 @@ export class UserStatsComponent implements OnInit {
   private calculateStats() {
     this.ItemService.currentItems.forEach((item) => {
       const itemStatName = Object.keys(item.stat);
-      
+
       const newValue =
         this._userStats[itemStatName[0] as keyof UserStats] +
         item.stat[itemStatName[0]];
