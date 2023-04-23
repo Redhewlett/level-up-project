@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { UserService } from './user.service';
 import { SettingService } from './setting.service';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root',
@@ -13,9 +14,11 @@ export class AdventureService {
 
   public currentAdventure: Adventures | null = null;
 
-  public currentCompletionTime = 0;
+  public currentCompletionTime = '';
   public interval: any;
-  public timeLeft = 0;
+  public secsLeft = 0;
+  public minsLeft = 0;
+  public adventureStarted = false;
 
   public currentXpRange = { min: 0, max: 0 };
   public currentGoldRange = { min: 0, max: 0 };
@@ -84,10 +87,13 @@ export class AdventureService {
           this.UserService.currentUser.xp
         );
         const bonus = userLvl - this.currentAdventure.levelRequired;
-        this.currentCompletionTime = parseFloat(
-          ((this.currentAdventure.time - bonus * 1000) / 1000 / 60).toFixed(2)
-        );
-        this.timeLeft = this.currentAdventure.time - bonus * 1000;
+        const time = this.currentAdventure.time - bonus * 1000;
+        const minutes = Math.floor(time / 60000);
+        const seconds = (time % 60000) / 1000;
+        this.currentCompletionTime =
+          minutes + ':' + (seconds < 10 ? 0 : '') + seconds;
+        this.minsLeft = minutes;
+        this.secsLeft = seconds;
       }
     } catch (error) {
       console.log(error);
@@ -95,11 +101,18 @@ export class AdventureService {
   }
 
   public startAdventure() {
-    //use completion time to launch a timer
+    this.adventureStarted = true;
     this.interval = setInterval(() => {
-      if (this.timeLeft > 0) {
-        this.timeLeft -= 1000;
-        console.log(this.timeLeft);
+      this.secsLeft -= 1;
+
+      if (this.secsLeft < 0) {
+        this.minsLeft -= 1;
+        this.secsLeft = 60;
+      }
+      if (this.minsLeft === 0 && this.secsLeft === 0) {
+        this.minsLeft = 0;
+        this.adventureStarted = false;
+        clearInterval(this.interval);
       }
     }, 1000);
   }

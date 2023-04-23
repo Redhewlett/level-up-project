@@ -1,4 +1,7 @@
-<div class="informationSquare adventure" *ngIf="UserService.currentUser">
+<div
+  class="informationSquare adventure"
+  *ngIf="UserService.currentUser && !AdventureService.adventureStarted"
+>
   <h3>Aventure</h3>
   <div class="adventure__list">
     <p class="adventure__list__title">Niveau requis</p>
@@ -20,4 +23,23 @@
       <p class="adventure__list__item__lvl">{{ adventure.levelRequired }}</p>
     </div>
   </div>
+</div>
+
+<div
+  class="informationSquare adventure expedition"
+  *ngIf="AdventureService.currentAdventure && AdventureService.adventureStarted"
+>
+  <h3>Aventure</h3>
+  <p>Expédition en cours...</p>
+  <div class="adventure__list__item selected" id="expedition">
+    <p class="adventure__list__item__name">
+      {{ AdventureService.currentAdventure.name }}
+    </p>
+  </div>
+  <p class="expedition__time">
+    Fin de l'expédition dans {{ AdventureService.minsLeft }}:{{
+      AdventureService.secsLeft < 10 ? "0" : ""
+    }}{{ AdventureService.secsLeft }}
+    {{ AdventureService.minsLeft < 1 ? "secondes" : "minutes" }}
+  </p>
 </div>

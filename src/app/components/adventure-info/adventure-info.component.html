@@ -28,6 +28,7 @@
         </div>
         <div class="adventure__info__block__loot"></div>
         <button
+          *ngIf="!AdventureService.adventureStarted"
           class="btnMain"
           (click)="this.AdventureService.startAdventure()"
         >
