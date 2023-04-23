@@ -78,6 +78,14 @@ export class UserService {
     }
   }
 
+  public updateUser(user: Users): void {
+    this.httpClient
+      .put(`http://localhost:3000/users/${user.id}`, user)
+      .subscribe();
+    // update local storage
+    localStorage.setItem('levelUp-user', JSON.stringify(user));
+  }
+
   public clearUserFromStorage() {
     localStorage.removeItem('levelUp-user');
     localStorage.removeItem('levelUp-items');

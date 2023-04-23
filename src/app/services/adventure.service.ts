@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { UserService } from './user.service';
 import { SettingService } from './setting.service';
-import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +18,8 @@ export class AdventureService {
   public secsLeft = 0;
   public minsLeft = 0;
   public adventureStarted = false;
+  public adventureCompleted = false;
+  public adventureResult = { xp: 0, gold: 0 };
 
   public currentXpRange = { min: 0, max: 0 };
   public currentGoldRange = { min: 0, max: 0 };
@@ -113,7 +114,39 @@ export class AdventureService {
         this.minsLeft = 0;
         this.adventureStarted = false;
         clearInterval(this.interval);
+        this.computeAdventureResult();
       }
     }, 1000);
+  }
+
+  private computeAdventureResult() {
+    this.adventureCompleted = true;
+    const xp =
+      Math.floor(
+        Math.random() * (this.currentXpRange.max - this.currentXpRange.min + 1)
+      ) + this.currentXpRange.min;
+    const gold =
+      Math.floor(
+        Math.random() *
+          (this.currentGoldRange.max - this.currentGoldRange.min + 1)
+      ) + this.currentGoldRange.min;
+    this.adventureResult = { xp, gold };
+    this.setUserRewards(xp, gold);
+  }
+
+  private setUserRewards(xp: number, gold: number) {
+    if (this.UserService.currentUser) {
+      const newValue = { ...this.UserService.currentUser, xp : this.UserService.currentUser.xp + xp, gold: this.UserService.currentUser.gold + gold };
+      this.UserService.currentUser = newValue;
+      this.UserService.updateUser(newValue);
+    }
+  }
+
+  public resetAdventure() {
+    this.adventureCompleted = false;
+    this.adventureStarted = false;
+    this.adventureResult = { xp: 0, gold: 0 };
+    this.currentAdventure = null;
+    this.currentCompletionTime = '';
   }
 }
