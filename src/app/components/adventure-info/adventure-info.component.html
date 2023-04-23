@@ -9,7 +9,10 @@
     </p>
 
     <ng-template #adventureSelected>
-      <div class="adventure__info__block">
+      <div
+        *ngIf="AdventureService.currentAdventure"
+        class="adventure__info__block"
+      >
         <div class="adventure__info__block__txt">
           <p>
             Expériences : {{ AdventureService.currentXpRange.min }} à
@@ -19,9 +22,18 @@
             Argent : {{ AdventureService.currentGoldRange.min }} à
             {{ AdventureService.currentGoldRange.max }} $
           </p>
+          <p>
+            Temps : {{ this.AdventureService.currentCompletionTime }} Minutes(s)
+          </p>
         </div>
         <div class="adventure__info__block__loot"></div>
-        <button class="btnMain">Lancer l'expédition</button>
+        <button
+          *ngIf="!AdventureService.adventureStarted"
+          class="btnMain"
+          (click)="this.AdventureService.startAdventure()"
+        >
+          Lancer l'expédition
+        </button>
       </div>
     </ng-template>
   </div>

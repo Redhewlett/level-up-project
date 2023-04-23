@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Adventures } from '../interfaces/adventures';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { UserService } from './user.service';
+import { SettingService } from './setting.service';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +14,20 @@ export class AdventureService {
 
   public currentAdventure: Adventures | null = null;
 
-  public currentXpRange: { min: number; max: number } = { min: 0, max: 0 };
-  public currentGoldRange: { min: number; max: number } = { min: 0, max: 0 };
+  public currentCompletionTime = '';
+  public interval: any;
+  public secsLeft = 0;
+  public minsLeft = 0;
+  public adventureStarted = false;
 
-  constructor(private httpClient: HttpClient) {}
+  public currentXpRange = { min: 0, max: 0 };
+  public currentGoldRange = { min: 0, max: 0 };
+
+  constructor(
+    private httpClient: HttpClient,
+    public UserService: UserService,
+    public SettingService: SettingService
+  ) {}
 
   public getAdventures(): Observable<Adventures[]> {
     if (!this.adventures.length) {
@@ -55,6 +68,7 @@ export class AdventureService {
       this.currentAdventure = adventureFound;
       this.computeAverageXp(adventureFound.xp);
       this.computeAverageGold(adventureFound.gold);
+      this.computeCompletionTime();
     }
   }
   // you can win xp between adventure.xp / 2 and adventure.xp
@@ -64,5 +78,42 @@ export class AdventureService {
   // you can win xp between adventure.gold / 3 and adventure.gold
   private computeAverageGold(gold: number) {
     this.currentGoldRange = { min: Math.floor(gold / 3), max: gold };
+  }
+
+  private computeCompletionTime() {
+    try {
+      if (this.UserService.currentUser && this.currentAdventure) {
+        const userLvl = this.SettingService.computeLevel(
+          this.UserService.currentUser.xp
+        );
+        const bonus = userLvl - this.currentAdventure.levelRequired;
+        const time = this.currentAdventure.time - bonus * 1000;
+        const minutes = Math.floor(time / 60000);
+        const seconds = (time % 60000) / 1000;
+        this.currentCompletionTime =
+          minutes + ':' + (seconds < 10 ? 0 : '') + seconds;
+        this.minsLeft = minutes;
+        this.secsLeft = seconds;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  public startAdventure() {
+    this.adventureStarted = true;
+    this.interval = setInterval(() => {
+      this.secsLeft -= 1;
+
+      if (this.secsLeft < 0) {
+        this.minsLeft -= 1;
+        this.secsLeft = 60;
+      }
+      if (this.minsLeft === 0 && this.secsLeft === 0) {
+        this.minsLeft = 0;
+        this.adventureStarted = false;
+        clearInterval(this.interval);
+      }
+    }, 1000);
   }
 }

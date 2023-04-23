@@ -20,6 +20,11 @@
 }
 
 .items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
   &__count {
     padding-inline: 2px;
     background-color: $body-bg;
@@ -28,5 +33,23 @@
     position: absolute;
     top: -12px;
     right: 24px;
+  }
+  &__images {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    & img {
+      width: 40px;
+      height: 40px;
+      padding: .2rem;
+      border: 2px solid $primary-color;
+      object-fit: cover;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        border: 2px solid $primary-accent-color;
+      }
+    }
   }
 }

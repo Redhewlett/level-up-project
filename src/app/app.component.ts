@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
 import { SettingService } from './services/setting.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ItemService } from './services/item.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent {
   constructor(
     private formBuilder: FormBuilder,
     public userService: UserService,
-    public SettingService: SettingService
+    public SettingService: SettingService,
   ) {
     this.form = this.formBuilder.group({
       userName: ['', [Validators.required, Validators.minLength(3)]],
