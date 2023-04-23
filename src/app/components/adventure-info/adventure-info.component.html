@@ -9,8 +9,17 @@
     </p>
 
     <ng-template #adventureSelected>
+      <img
+        *ngIf="AdventureService.adventureStarted"
+        class="adventure__inProgress"
+        src="assets/images/adventure-in-progress.gif"
+        alt="adventure-in-progress gif"
+      />
       <div
-        *ngIf="AdventureService.currentAdventure && !AdventureService.adventureStarted"
+        *ngIf="
+          AdventureService.currentAdventure &&
+          !AdventureService.adventureStarted
+        "
         class="adventure__info__block"
       >
         <div class="adventure__info__block__txt">

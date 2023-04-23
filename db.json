@@ -57,17 +57,17 @@
     {
       "id": "1682096268",
       "name": "ted",
-      "xp": 9000000000,
-      "gold": 999999999,
+      "xp": 9000001148,
+      "gold": 1000000535,
       "items": [
         {
           "id": "764z",
-          "quantity": 1,
+          "quantity": 2,
           "tier": "tier1"
         },
         {
           "id": "452x",
-          "quantity": 1,
+          "quantity": 8,
           "tier": "tier1"
         },
         {

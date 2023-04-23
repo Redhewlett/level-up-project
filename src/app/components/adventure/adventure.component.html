@@ -1,6 +1,10 @@
 <div
   class="informationSquare adventure"
-  *ngIf="UserService.currentUser && !AdventureService.adventureStarted && !AdventureService.adventureCompleted"
+  *ngIf="
+    UserService.currentUser &&
+    !AdventureService.adventureStarted &&
+    !AdventureService.adventureCompleted
+  "
 >
   <h3>Aventure</h3>
   <div class="adventure__list">
@@ -57,11 +61,29 @@
         {{ AdventureService.currentAdventure.name }}
       </p>
     </div>
-    <p class="expedition__reward">
-      Butins:<br />
-      <span>{{ AdventureService.adventureResult.xp }}XP</span> -
-      <span>{{ AdventureService.adventureResult.gold }} $</span>
-    </p>
+    <div class="expedition__reward">
+      <h4>Butins :</h4>
+      <p>
+        <span>{{ AdventureService.adventureResult.xp }} XP&nbsp;&nbsp;</span>
+        -
+        <span>&nbsp;&nbsp;{{ AdventureService.adventureResult.gold }} $</span>
+      </p>
+
+      <img
+        src="assets/images/loot/{{
+          this.ItemService.getItem(
+            AdventureService.adventureLoot.id,
+            AdventureService.adventureLoot.tier
+          )?.name
+        }}.png"
+        alt="{{
+          this.ItemService.getItem(
+            AdventureService.adventureLoot.id,
+            AdventureService.adventureLoot.tier
+          )?.name
+        }}"
+      />
+    </div>
     <button class="btnMain" (click)="AdventureService.resetAdventure()">
       Retourner à la liste des Donjons
     </button>

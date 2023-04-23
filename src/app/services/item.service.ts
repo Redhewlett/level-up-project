@@ -36,8 +36,16 @@ export class ItemService {
     );
   }
 
+  public getItem(id: string, tier: string) {
+    const allItems = this.items[tier as keyof Loot].items;
+    const foundItem = allItems.find((item) => item.id === id);
+    return foundItem;
+  }
+
   public setCurrentItems({ id, tier, quantity }: Item) {
     if (this.currentItems.length === 6) return;
+    // check if item is already in currentItems
+    if (this.currentItems.find((item) => item.id === id)) return;
 
     const allTiers = Object.keys(this.items);
     const foundTier = allTiers.find((tierName) => tierName === tier);
@@ -51,5 +59,22 @@ export class ItemService {
 
     this.currentItems = [...this.currentItems, foundItem];
     localStorage.setItem('levelUp-items', JSON.stringify(this.currentItems));
+  }
+
+  public rewardTier(adventureLvl: number) {
+    switch (true) {
+      case adventureLvl <= 6:
+        return 'tier1';
+      case adventureLvl <= 12:
+        return 'tier2';
+      default:
+        return 'tier3';
+    }
+  }
+
+  public rewardItem(tier: string) {
+    const allItems = this.items[tier as keyof Loot].items;
+    const randomItem = allItems[Math.floor(Math.random() * allItems.length)];
+    return { id: randomItem.id, quantity: 1, tier };
   }
 }

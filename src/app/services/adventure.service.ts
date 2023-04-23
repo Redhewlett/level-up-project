@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { UserService } from './user.service';
 import { SettingService } from './setting.service';
+import { ItemService } from './item.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,7 @@ export class AdventureService {
   public adventureStarted = false;
   public adventureCompleted = false;
   public adventureResult = { xp: 0, gold: 0 };
+  public adventureLoot = { id: '', tier: '', quantity: 0 };
 
   public currentXpRange = { min: 0, max: 0 };
   public currentGoldRange = { min: 0, max: 0 };
@@ -27,7 +29,8 @@ export class AdventureService {
   constructor(
     private httpClient: HttpClient,
     public UserService: UserService,
-    public SettingService: SettingService
+    public SettingService: SettingService,
+    public ItemService: ItemService
   ) {}
 
   public getAdventures(): Observable<Adventures[]> {
@@ -70,6 +73,7 @@ export class AdventureService {
       this.computeAverageXp(adventureFound.xp);
       this.computeAverageGold(adventureFound.gold);
       this.computeCompletionTime();
+      console.log(this.ItemService.rewardTier(adventureFound.levelRequired));
     }
   }
   // you can win xp between adventure.xp / 2 and adventure.xp
@@ -131,14 +135,43 @@ export class AdventureService {
           (this.currentGoldRange.max - this.currentGoldRange.min + 1)
       ) + this.currentGoldRange.min;
     this.adventureResult = { xp, gold };
-    this.setUserRewards(xp, gold);
+    this.setUserRewards(xp, gold, this.currentAdventure!.levelRequired);
   }
 
-  private setUserRewards(xp: number, gold: number) {
+  private setUserRewards(xp: number, gold: number, levelRequired: number) {
+    const rewardTier = this.ItemService.rewardTier(levelRequired);
+    const reward = this.ItemService.rewardItem(rewardTier);
+    this.adventureLoot = reward;
+
     if (this.UserService.currentUser) {
-      const newValue = { ...this.UserService.currentUser, xp : this.UserService.currentUser.xp + xp, gold: this.UserService.currentUser.gold + gold };
-      this.UserService.currentUser = newValue;
-      this.UserService.updateUser(newValue);
+      // check if user already has the item
+      const itemFound = this.UserService.currentUser.items.find(
+        (item) => item.id === reward.id
+      );
+      // if he has it, add quantity
+      if (itemFound) {
+        const newValue = {
+          ...this.UserService.currentUser,
+          xp: this.UserService.currentUser.xp + xp,
+          gold: this.UserService.currentUser.gold + gold,
+          items: this.UserService.currentUser.items.map((item) => {
+            if (item.id === reward.id) {
+              return { ...item, quantity: item.quantity + 1 };
+            }
+            return item;
+          }),
+        };
+        this.UserService.updateUser(newValue);
+      } else {
+        // if he doesn't have it, add it to his items
+        const newValue = {
+          ...this.UserService.currentUser,
+          xp: this.UserService.currentUser.xp + xp,
+          gold: this.UserService.currentUser.gold + gold,
+          items: [...this.UserService.currentUser.items, reward],
+        };
+        this.UserService.updateUser(newValue);
+      }
     }
   }
 
