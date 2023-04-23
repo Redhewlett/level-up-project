@@ -15,8 +15,5 @@ export class UserInfoComponent {
   constructor(
     public userService: UserService,
     public SettingService: SettingService
-  ) {
-    this.userService.getUsers().subscribe();
-    this.SettingService.getSettings().subscribe();
-  }
+  ) {}
 }

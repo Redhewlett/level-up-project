@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
 import { SettingService } from './services/setting.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ItemService } from './services/item.service';
 
 @Component({
   selector: 'app-root',
@@ -10,17 +8,8 @@ import { ItemService } from './services/item.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  public form: FormGroup;
-
   constructor(
-    private formBuilder: FormBuilder,
     public userService: UserService,
-    public SettingService: SettingService,
-  ) {
-    this.form = this.formBuilder.group({
-      userName: ['', [Validators.required, Validators.minLength(3)]],
-    });
-    this.userService.getUsers().subscribe();
-    this.SettingService.getSettings().subscribe();
-  }
+    public SettingService: SettingService
+  ) {}
 }
