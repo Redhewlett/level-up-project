@@ -13,6 +13,7 @@ export class AdventureService {
   public adventures: Adventures[] = [];
 
   public currentAdventure: Adventures | null = null;
+  public isSelecting = true;
 
   public currentCompletionTime = '';
   public interval: any;
@@ -105,6 +106,7 @@ export class AdventureService {
   }
 
   public startAdventure() {
+    this.isSelecting = false;
     this.adventureStarted = true;
     this.interval = setInterval(() => {
       this.secsLeft -= 1;
@@ -175,6 +177,7 @@ export class AdventureService {
   }
 
   public resetAdventure() {
+    this.isSelecting = true;
     this.adventureCompleted = false;
     this.adventureStarted = false;
     this.adventureResult = { xp: 0, gold: 0 };
