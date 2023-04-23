@@ -73,7 +73,6 @@ export class AdventureService {
       this.computeAverageXp(adventureFound.xp);
       this.computeAverageGold(adventureFound.gold);
       this.computeCompletionTime();
-      console.log(this.ItemService.rewardTier(adventureFound.levelRequired));
     }
   }
   // you can win xp between adventure.xp / 2 and adventure.xp
