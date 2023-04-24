@@ -4,9 +4,14 @@
   font-size: $font-regular;
   padding-inline: 2rem;
   padding-bottom: 3rem;
+  &__inProgress {
+    width: 50px;
+    height: 50px;
+  }
   &__list {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0rem;
     &__title {
       width: 100%;
@@ -16,12 +21,14 @@
     & .disabled:hover {
       cursor: not-allowed;
     }
+
     &__item {
+      width: 100%;
       padding: 1rem;
       display: flex;
       justify-content: space-between;
       border-top: 2px solid $transparent;
-      border-bottom: 0px;
+      border-bottom: 2px solid transparent;
       border-left: 2px solid $transparent;
       border-right: 2px solid $transparent;
       border-radius: 5px;
@@ -38,10 +45,42 @@
       }
       &:last-of-type {
         border-bottom: 2px solid $transparent;
+        &.selected {
+          border-bottom: 2px solid $tertiary-color;
+        }
         &:hover {
           border-bottom: 2px solid white;
         }
       }
     }
+  }
+}
+.selected {
+  width: 105%;
+  background: rgb(2, 3, 32);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 3, 32, 0.32) 13%,
+    rgba(220, 198, 46, 0.2) 100%
+  );
+  border: 2px solid $tertiary-color;
+  transition: all 0.3s ease-in-out;
+  & .adventure__list__item__name {
+    color: $tertiary-color;
+  }
+}
+
+#expedition {
+  border: 3px solid $tertiary-color;
+}
+
+.expedition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  &__time {
+    color: $tertiary-color;
   }
 }

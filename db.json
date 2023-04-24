@@ -7,8 +7,14 @@
       "gold": 100,
       "items": [
         {
-          "id": "3",
-          "quantity": 1
+          "id": "764z",
+          "quantity": 1,
+          "tier": "tier1"
+        },
+        {
+          "id": "452x",
+          "quantity": 1,
+          "tier": "tier1"
         }
       ]
     },
@@ -16,16 +22,40 @@
       "id": "2",
       "name": "jessica",
       "xp": 1500,
-      "gold": 500
+      "gold": 500,
+      "items": [
+        {
+          "id": "764z",
+          "quantity": 1,
+          "tier": "tier1"
+        },
+        {
+          "id": "452x",
+          "quantity": 1,
+          "tier": "tier1"
+        }
+      ]
     },
     {
       "id": "1681482710",
       "name": "florian",
-      "xp": 5500,
-      "gold": 20000
+      "xp": 0,
+      "gold": 0,
+      "items": [
+        {
+          "id": "764z",
+          "quantity": 1,
+          "tier": "tier1"
+        },
+        {
+          "id": "452x",
+          "quantity": 1,
+          "tier": "tier1"
+        }
+      ]
     },
     {
-      "id": "1681485059",
+      "id": "1682096268",
       "name": "ted",
       "xp": 1,
       "gold": 1
@@ -55,49 +85,56 @@
       "name": "Ladmya's backpack",
       "levelRequired": 1,
       "xp": 100,
-      "gold": 50
+      "gold": 50,
+      "time": 60000
     },
     {
       "id": 2,
       "name": "The Deathly Mount Nakkache",
       "levelRequired": 3,
       "xp": 500,
-      "gold": 250
+      "gold": 250,
+      "time": 120000
     },
     {
       "id": 3,
       "name": "Jennifer's imputation hell",
       "levelRequired": 6,
       "xp": 800,
-      "gold": 500
+      "gold": 10000,
+      "time": 125000
     },
     {
       "id": 4,
       "name": "William's desolation",
       "levelRequired": 8,
       "xp": 1000,
-      "gold": 800
+      "gold": 800,
+      "time": 140000
     },
     {
       "id": 5,
       "name": "The unicorn's cave",
       "levelRequired": 12,
       "xp": 1400,
-      "gold": 1800
+      "gold": 1000,
+      "time": 150000
     },
     {
       "id": 6,
       "name": "Portal to the multivers",
       "levelRequired": 24,
-      "xp": 2800,
-      "gold": 2400
+      "xp": 4000,
+      "gold": 1800,
+      "time": 170000
     },
     {
       "id": 7,
       "name": "???",
-      "levelRequired": 46,
-      "xp": 5000,
-      "gold": 3000
+      "levelRequired": 40,
+      "xp": 10000,
+      "gold": 2000,
+      "time": 200000
     }
   ],
   "settings": {
