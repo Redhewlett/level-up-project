@@ -4,5 +4,4 @@ export interface Adventures {
   xp: number;
   gold: number;
   levelRequired: number;
-  time: number;
 }

@@ -11,7 +11,6 @@
 
   <form
     [formGroup]="form"
-    (keyup.enter)="userService.setCurrentUser(form.value.userName)"
     (ngSubmit)="userService.setCurrentUser(form.value.userName)"
   >
     <div *ngIf="form.dirty">
