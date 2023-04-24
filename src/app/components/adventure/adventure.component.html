@@ -1,1 +1,6 @@
-<p>adventure works</p>
+<ng-container *ngIf="adventure">
+  <div class="adventure__item">
+    <span class="adventure__item__name">{{ adventure.name }}</span>
+    <span class="adventure__item__lvl">{{ adventure.levelRequired }}</span>
+  </div>
+</ng-container>

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { UserService } from './services/user.service';
-import { SettingService } from './services/setting.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +6,5 @@ import { SettingService } from './services/setting.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(
-    public userService: UserService,
-    public SettingService: SettingService
-  ) {}
+  constructor() {}
 }

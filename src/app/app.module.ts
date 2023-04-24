@@ -12,6 +12,7 @@ import { AdventureComponent } from './components/adventure/adventure.component';
 import { AdventureInfoComponent } from './components/adventure-info/adventure-info.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     UserStatsComponent,
     AdventureComponent,
     AdventureInfoComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

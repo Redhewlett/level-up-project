@@ -1,5 +1,11 @@
-<main class="home">
-  <app-user-stats></app-user-stats>
-  <app-adventure></app-adventure>
-  <app-adventure-info></app-adventure-info>
-</main>
+<div class="grid">
+  <div class="grid__stat"></div>
+  <div class="grid__equiments"></div>
+  <div class="grid__adventures">
+    <app-adventure
+      *ngFor="let adventure of adventures"
+      [adventure]="adventure"
+    ></app-adventure>
+  </div>
+  <div class="grid__adventure__info"></div>
+</div>

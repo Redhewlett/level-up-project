@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Adventure } from 'src/app/interfaces/adventures';
 
 @Component({
   selector: 'app-adventure',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./adventure.component.scss'],
 })
 export class AdventureComponent {
-  public selectedAdventure: string | null = null;
+  @Input() public adventure: Adventure | null = null
 
   constructor() {}
 }
