@@ -4,7 +4,13 @@
       "id": "1",
       "name": "biben",
       "xp": 2812,
-      "gold": 100
+      "gold": 100,
+      "items": [
+        {
+          "id": "3",
+          "quantity": 1
+        }
+      ]
     },
     {
       "id": "2",
@@ -15,13 +21,31 @@
     {
       "id": "1681482710",
       "name": "florian",
-      "xp": 0,
-      "gold": 0
+      "xp": 5500,
+      "gold": 20000
     },
     {
       "id": "1681485059",
       "name": "ted",
-      "xp": 4000,
+      "xp": 1,
+      "gold": 1
+    },
+    {
+      "id": "1681811743",
+      "name": "florna",
+      "xp": 0,
+      "gold": 0
+    },
+    {
+      "id": "1681998118",
+      "name": "biben",
+      "xp": 0,
+      "gold": 0
+    },
+    {
+      "id": "1681998126",
+      "name": "jessica",
+      "xp": 0,
       "gold": 0
     }
   ],
@@ -80,5 +104,31 @@
     "xpFirstLevel": 1000,
     "xpRatioByLevel": 1.5,
     "maxLevel": 50
-  }
+  },
+  "equipments": [
+    {
+      "id": 1,
+      "name": "Hache"
+    },
+    {
+      "id": 2,
+      "name": "Arc"
+    },
+    {
+      "id": 3,
+      "name": "Anneau"
+    },
+    {
+      "id": 4,
+      "name": "Amulette"
+    },
+    {
+      "id": 5,
+      "name": "Bouclier"
+    },
+    {
+      "id": 6,
+      "name": "Lance"
+    }
+  ]
 }

@@ -1,1 +1,27 @@
-<p>equipments works!</p>
+<div class="equipments__container items">
+  <div class="informationSquare equipments">
+    <h3>Equipements</h3>
+    <p class="items__count">{{this.userService.countItems}}/6</p>
+    <ul *ngIf="userService.currentUser">
+      <li *ngFor="let item of userService.currentUser.items ">
+        <div *ngIf="item.wearing === true">
+          <img src="assets/equipments/{{EquipmentService.getEquipmentById(item.id)?.toLowerCase() }}.png" alt="" />
+          <span class="quantity">{{item.quantity}}</span>
+        </div>
+      </li>
+      <!-- <li *ngFor="let item of userService.currentUser.items">
+        <img src="assets/equipments/{{EquipmentService.getEquipmentById(item.id)?.toLowerCase() }}.png" alt="" />
+         <span class="quantity">{{item.quantity}}</span>
+      </li> -->
+    </ul>
+    <button (click)="toggleShow()" type="checkbox">Modifier</button>
+  </div>
+
+</div>
+
+<div class="equipments__container items" *ngIf="isShown" class="" id="divshow">
+  <div class="informationSquare equipments">
+    <h3>Inventaire</h3>
+
+  </div>
+</div>
