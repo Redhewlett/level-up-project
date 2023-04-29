@@ -21,8 +21,8 @@
     {
       "id": "2",
       "name": "jessica",
-      "xp": 1500,
-      "gold": 500,
+      "xp": 2446,
+      "gold": 599,
       "items": [
         {
           "id": "764z",
@@ -57,17 +57,17 @@
     {
       "id": "1682096268",
       "name": "ted",
-      "xp": 9000000000,
-      "gold": 999999999,
+      "xp": 9000001539,
+      "gold": 1000000694,
       "items": [
         {
           "id": "764z",
-          "quantity": 1,
+          "quantity": 2,
           "tier": "tier1"
         },
         {
           "id": "452x",
-          "quantity": 1,
+          "quantity": 12,
           "tier": "tier1"
         },
         {
@@ -79,6 +79,11 @@
           "id": "55sel",
           "quantity": 1,
           "tier": "tier3"
+        },
+        {
+          "id": "d349",
+          "quantity": 1,
+          "tier": "tier1"
         }
       ]
     }

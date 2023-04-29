@@ -78,6 +78,22 @@ export class UserService {
     }
   }
 
+  public updateUser(user: Users): void {
+    // update local variable
+    this.currentUser = user;
+    // update his items
+    user.items.forEach((item: Item) => {
+      // check if item is already in the list
+      this.ItemService.setCurrentItems(item);
+    });
+    // update db
+    this.httpClient
+      .put(`http://localhost:3000/users/${user.id}`, user)
+      .subscribe();
+    // update local storage
+    localStorage.setItem('levelUp-user', JSON.stringify(user));
+  }
+
   public clearUserFromStorage() {
     localStorage.removeItem('levelUp-user');
     localStorage.removeItem('levelUp-items');

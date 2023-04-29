@@ -3,6 +3,7 @@ import { AdventureService } from '../../services/adventure.service';
 import { UserService } from 'src/app/services/user.service';
 import { SettingService } from 'src/app/services/setting.service';
 import { Adventures } from 'src/app/interfaces/adventures';
+import { ItemService } from 'src/app/services/item.service';
 @Component({
   selector: 'app-adventure',
   templateUrl: './adventure.component.html',
@@ -14,7 +15,8 @@ export class AdventureComponent {
   constructor(
     public AdventureService: AdventureService,
     public SettingService: SettingService,
-    public UserService: UserService
+    public UserService: UserService,
+    public ItemService: ItemService
   ) {
     this.AdventureService.getAdventures().subscribe();
   }
